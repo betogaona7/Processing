@@ -1,30 +1,24 @@
 
 import processing.opengl.*;
 import processing.video.*;
-//import javax.media.opengl.*; 
-import com.jogamp.opengl.*;
-import processing.opengl.*;
+
+//import com.jogamp.opengl.*;
+
+import com.jogamp.opengl.GL;
+import com.jogamp.opengl.GL2ES2;
+//import processing.opengl.*;
  
 Capture video;
 //PGraphicsOpenGL pgl;
-//GL gl; 
-
-PGraphicsOpenGL pg;
-PGL pgl;
-//GL2 gl;
-//PJOGL pgl;
+//GL gl;
+PJOGL pgl;
 GL2ES2 gl;
 
 void setup() {
-    size(1024, 768,P3D);
-    
+    size(1024, 768, P3D);
     //pgl = (PGraphicsOpenGL) g;
-    pg = (PGraphicsOpenGL) g;
-    pgl = beginPGL();
-    //gl = ((PJOGL)pgl).gl.getGL2();
-
-    //pgl = (PJOGL) beginPGL();
     //gl = pgl.gl;
+    pgl = (PJOGL) beginPGL();
     gl = pgl.gl.getGL2ES2();
     frameRate(30);
  
@@ -49,9 +43,7 @@ void draw(){
     background(0);
  
     //pgl.beginGL();
-    //pgl = (PJOGL) beginPGL();
-    pgl = beginPGL();
-    
+    pgl = (PJOGL) beginPGL();  
     
     gl.glDisable(GL.GL_DEPTH_TEST);
     gl.glEnable(GL.GL_BLEND);
@@ -62,9 +54,6 @@ void draw(){
     rotateY(radians(mouseX-(width)));
     rotateX(radians(-(mouseY-(height))));
     translate(-width, -height, 0);
-    
-      
-      
       
     int index = 0;
    
